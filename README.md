@@ -9,14 +9,26 @@ It has been tested on Ubuntu 16.04 and I cannot guarantee it will work with any 
 
 ## What does this script install?
 > [Plex Media Server](https://www.plex.tv/) – The key component that will be serving all of our media files.
-> [Deluge](http://deluge-torrent.org/) – The bittorrent client we will be using in conjunction with CouchPotato and Sonarr.
-> [CouchPotato](https://couchpota.to/) – Automation for finding and downloading movies to use with Plex.
-> [Sonarr](https://sonarr.tv/) – Automation for finding and downloading tv shows to use with Plex.
-> [PlexPy]() – Allows you to monitor users and viewing habits on your Plex Media Server.https://github.com/JonnyWong16/plexpy/asdhttps://github.com/JonnyWong16/plexpy/https://github.com/JonnyWong16/plexpy/
-> [Ombi (PlexRequests.NET)]() – Allows your plex users to request movies and television shows with out bugging you.
-> [Jackett]() – Allows you to use private trackers with couchpotato and sonarr.
 
-([Quoted from the guide](https://thisisforsomething.com/guide/guide-to-plex-media-server-on-ubuntu-server-16-04/))ghjk
+
+> [Deluge](http://deluge-torrent.org/) – The bittorrent client we will be using in conjunction with CouchPotato and Sonarr.
+
+
+> [CouchPotato](https://couchpota.to/) – Automation for finding and downloading movies to use with Plex.
+
+
+> [Sonarr](https://sonarr.tv/) – Automation for finding and downloading tv shows to use with Plex.
+
+
+> [PlexPy](https://github.com/JonnyWong16/plexpy/asdhttps://github.com/JonnyWong16/plexpy/https://github.com/JonnyWong16/plexpy/) – Allows you to monitor users and viewing habits on your Plex Media Server.
+
+
+> [Ombi (PlexRequests.NET)](https://github.com/tidusjar/Ombi) – Allows your plex users to request movies and television shows with out bugging you.
+
+
+> [Jackett](https://github.com/Jackett/Jackett) – Allows you to use private trackers with couchpotato and sonarr.
+
+([Quoted from the guide](https://thisisforsomething.com/guide/guide-to-plex-media-server-on-ubuntu-server-16-04/))
 
 ## Installing
 (Guide will come soon)
