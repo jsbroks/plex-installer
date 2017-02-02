@@ -59,22 +59,22 @@ header
 
 echo -e "${green}Updating system...$gray"
 
-#apt-get install -f -y
-#apt-get autoremove -y
-#apt-get clean -y
+apt-get install -f -y
+apt-get autoremove -y
+apt-get clean -y
 
-#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
-#echo "deb http://apt.sonarr.tv/ master main" >/etc/apt/sources.list.d/sonarr.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+echo "deb http://apt.sonarr.tv/ master main" >/etc/apt/sources.list.d/sonarr.list
 
-#apt-get update
-#apt-get install xterm --yes
+apt-get update
+apt-get install xterm --yes
 
 clear
 
 header
 
-#xterm -title "Updating System" -e sudo apt-get upgrade -y
-#xterm -title "Updating System" -e sudo apt-get dist-upgrade -y
+xterm -title "Updating System" -e sudo apt-get upgrade -y
+xterm -title "Updating System" -e sudo apt-get dist-upgrade -y
 
 install_pg python2.7
 install_pg mono-complete
