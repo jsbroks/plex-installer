@@ -13,7 +13,17 @@ purple='\e[1;35m'
 gray='\e[0;37m'
 
 local_ip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
-DIR=$(dirname $0)
+
+SOURCE="${BASH_SOURCE[0]}"
+
+while [ -h "$SOURCE" ]; do
+	DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  	SOURCE="$(readlink "$SOURCE")"
+  	[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
 LOGS=$DIR/logs.txt
 
 rm $LOGS >/dev/null
@@ -32,55 +42,59 @@ install_pg () {
 	echo -ne "$gray$program ... "
 	condition=$(which $program 2>/dev/null | grep -v "not found" | wc -l)
 	if [ $condition -eq 0 ] ; then
-		echo -e "$gray""[$red""Installing""$gray""]"
+		echo -e "${gray}[${red}Installing${gray}]"
 		xterm -title "Installing $program" -e sudo apt-get --yes install $program
 	else 
-		echo -e "$gray""[$green""OK""$gray""]"
+		echo -e "${gray}[${green}OK${gray}]"
 	fi
 	sleep 0.1
 }
 
+copy () {
+	cp $DIR/services/$1.service /lib/systemd/system/$1.service
+}
+
 header
 
-echo -e "$green""Updating system...$gray"
+echo -e "${green}Updating system...$gray"
 
-#apt-get install -f -y
-#apt-get autoremove -y
-#apt-get clean -y
+apt-get install -f -y
+apt-get autoremove -y
+apt-get clean -y
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
-echo "deb http://apt.sonarr.tv/ master main" | sudo tee /etc/apt/sources.list.d/sonarr.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+echo "deb http://apt.sonarr.tv/ master main" >/etc/apt/sources.list.d/sonarr.list
 
-#apt-get update
-#apt-get install xterm --yes
+apt-get update
+apt-get install xterm --yes
 
 clear
 
 header
 
-#sudo xterm -title "Updating System" -e sudo apt-get upgrade -y
-#sudo xterm -title "Updating System" -e sudo apt-get dist-upgrade -y
+xterm -title "Updating System" -e sudo apt-get upgrade -y
+xterm -title "Updating System" -e sudo apt-get dist-upgrade -y
 
-#install_pg python2.7
-#install_pg mono-complete
+install_pg python2.7
+install_pg mono-complete
 install_pg git
-#install_pg python-lxml
-#install_pg python-zip
-#install_pg unzip
-#install_pg openssh-server
-#install_pg libcurl4-openssh-dev
-#install_pg bzip2
+install_pg python-lxml
+install_pg python-zip
+install_pg unzip
+install_pg openssh-server
+install_pg libcurl4-openssh-dev
+install_pg bzip2
 install_pg deluged
 install_pg deluged-webui
 install_pg nzbdrone
 
-# Folder prep
 mkdir -p /opt/ProgramData/
 cd /opt/
 
 clear
 
 header
+
 read -e -p 'Are you a plex pass owner [y/n]? ' plex_pass
 
 if [ -z $plex_pass ] ; then
@@ -95,7 +109,9 @@ else
 	plex_pass="n"
 fi
 
-echo -en "$yellow""Installing Plex Media Server..." | tee -a $LOGS && echo "" >>$LOGS
+#=============================
+
+echo -en "${yellow}Installing Plex Media Server..." | tee -a $LOGS && echo "" >>$LOGS
 
 plex_update="/opt/ProgramData/plexupdate/plexupdate.conf"
 
@@ -126,55 +142,98 @@ fi
 
 echo -e "$green Done"
 
-echo -en "$yellow""Installing Delgue..." | tee -a $LOGS && echo "" >>$LOGS
-adduser --disabled-password --system --home /var/lib/deluge --gecos "Deluge service" --group deluge >>$LOGS
-touch /var/log/deluged.log >>$LOGS
-touch /var/log/deluge-web.log >>$LOGS
-chown deluge:deluge /var/log/deluge* >>$LOGS
+#=============================
 
-cp $DIR/services/deluged.service /lib/systemd/system/deluged.service
-cp $DIR/services/deluge-web.service /lib/systemd/system/deluge-web.service
+echo -en "${yellow}Installing Delgue..." | tee -a $LOGS && echo "" >>$LOGS
 
-systemctl start deluged &>>$LOGS
-systemctl enable deluged &>>$LOGS
-systemctl start deluge-web &>>$LOGS
-systemctl enable deluge-web &>>$LOGS
+copy deluged
+copy deluge-web
+
+{
+	adduser --disabled-password --system --home /var/lib/deluge --gecos "Deluge service" --group deluge
+	touch /var/log/deluged.log
+	touch /var/log/deluge-web.log
+	chown deluge:deluge /var/log/deluge*
+
+	systemctl start deluged
+	systemctl enable deluged
+	systemctl start deluge-web
+	systemctl enable deluge-web
+} &>>$LOGS
 
 echo -e "$green Done"
 
-echo -en "$yellow""Installing CouchPotato..." | tee -a $LOGS && echo "" >>$LOGS
+#=============================
+
+echo -en "${yellow}Installing CouchPotato..." | tee -a $LOGS && echo "" >>$LOGS
 
 adduser --disabled-password --system --home /opt/ProgramData/couchpotato --gecos "CouchPotato service" --group couchpotato >>$LOGS
 xterm -title "Installing CouchPotato" -e git clone https://github.com/CouchPotato/CouchPotatoServer.git
 chown -R couchpotato:couchpotato /opt/CouchPotatoServer/
 
-cp $DIR/services/couchpotato.service /lib/systemd/system/couchpotato.service
+copy couchpotato
 
 systemctl start couchpotato &>>$LOGS
 systemctl enable couchpotato &>>$LOGS
 
 echo -e "$green Done"
 
-echo -en "$yellow""Installing Sonarr..." | tee -a $LOGS && echo "" >>$LOGS
+#=============================
+
+echo -en "${yellow}Installing Sonarr..." | tee -a $LOGS && echo "" >>$LOGS
 
 adduser --disabled-password --system --home /opt/ProgramData/sonarr --gecos "Sonarr Service" --group sonarr >>$LOGS
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+chown -R sonarr:sonarr /opt/NzbDrone
 
-echo "deb http://apt.sonarr.tv/ master main" | sudo tee /etc/apt/sources.list.d/sonarr.list
-
-sudo apt-get update && sudo apt-get install nzbdrone
-
-sudo chown -R sonarr:sonarr /opt/NzbDrone
-
-xterm -title "Installing CouchPotato" -e git clone https://github.com/CouchPotato/CouchPotatoServer.git 
-chown -R couchpotato:couchpotato /opt/CouchPotatoServer/
-
-cp $DIR/services/couchpotato.service /lib/systemd/system/couchpotato.service
+copy sonarr
 
 systemctl start couchpotato &>>$LOGS
 systemctl enable couchpotato &>>$LOGS
 
 echo -e "$green Done"
 
-#sensible-browser localhost >/dev/null
+#=============================
+
+echo -en "${yellow}Installing PlexPy..." | tee -a $LOGS && echo "" >>$LOGS
+
+adduser --disabled-password --system --no-create-home --gecos "PlexPy Service"  --group plexpy
+xterm -title "Installing PlexPy" -e git clone https://github.com/JonnyWong16/plexpy.git 
+
+chown -R plexpy:plexpy /opt/plexpy
+
+copy plexpy
+
+systemctl start plexpy &&>>$LOGS
+systemctl enable plexpy &>>$LOGS
+
+echo -e "$green Done"
+
+#=============================
+
+echo -en "${yellow}Installing PlexRequest.NET..." | tee -a $LOGS && echo "" >>$LOGS
+
+mkdir /opt/ombi
+cd /opt/ombi
+
+adduser --disabled-password --system --no-create-home --gecos "Ombi Service" --group ombi
+xterm -title "Installing PlexRequest.NET." -e wget $(curl -s https://api.github.com/repos/tidusjar/Ombi/releases/latest | grep 'browser_' | cut -d\" -f4)
+
+unzip Ombi.zip >>$LOGS
+rm Ombi.zip >>$LOGS
+
+chown -R ombi:ombi /opt/ombi
+
+copy ombi
+
+systemctl start plexpy &&>>$LOGS
+systemctl enable plexpy &>>$LOGS
+
+echo -e "$green Done"
+
+#=============================
+
+echo -e "\nOpening settup guide! (Almost done)"
+URL=$DIR/html/setup.html
+[[ -x $BROWSER ]] && exec "$BROWSER" "$URL"
+path=$(which xdg-open || which gnome-open) && exec "$path" "$URL"
