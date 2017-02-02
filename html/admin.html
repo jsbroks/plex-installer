@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Media Server</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container">
+  <div class="row fs">
+    <h1>administrative<br><span class="admin-highlight">Control Panel</span></h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <a href="#" class="goBtn">console<span class="btnInfo admin-highlight">▸ remote server access</span></a>
+      <a href="/" onclick="javascript:event.target.port=5050" class="goBtn" target="_BLANK">couchpotato<span class="btnInfo admin-highlight">▸ movie handler</span></a>
+      <a href="/" onclick="javascript:event.target.port=8112" class="goBtn" target="_BLANK">deluge<span class="btnInfo admin-highlight">▸ webui torrent client</span></a>
+      <a href="/" onclick="javascript:event.target.port=8989" class="goBtn" target="_BLANK">Sonarr<span class="btnInfo admin-highlight">▸ TV Show handler</span></a>
+      <a href="/" onclick="javascript:event.target.port=8181" class="goBtn" target="_BLANK">statistics<span class="btnInfo admin-highlight">▸ data collection</span></a>
+      <a href="index.html" class="goBtn">back<span class="btnInfo admin-highlight">▸ landing screen</span></a>
+    </div>
+  </div>
+  <footer class="row">
+    <div class="col-xs-12">
+      <small class="center-text">Media Server</small>
+    </div>
+  </footer>
+</div>
+  
+  
+</body>
+</html>
+

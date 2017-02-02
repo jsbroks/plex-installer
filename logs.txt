@@ -1,4 +1,70 @@
-Wednesday 05 2017 01:01:16 PM
+Wednesday 05 2017 06:52:02 PM
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version                 Architecture Description
++++-==============-=======================-============-=============================================================
+ii  python2.7      2.7.12-1ubuntu0~16.04.1 amd64        Interactive high-level object-oriented language (version 2.7)
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version           Architecture Description
++++-==============-=================-============-==========================================================
+ii  mono-complete  4.2.3.4-0xamarin2 amd64        complete Mono runtime, development tools and all libraries
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version          Architecture Description
++++-==============-================-============-===================================================
+ii  git            1:2.7.4-0ubuntu1 amd64        fast, scalable, distributed revision control system
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version       Architecture Description
++++-==============-=============-============-======================================================
+ii  python-lxml    3.5.0-1build1 amd64        pythonic binding for the libxml2 and libxslt libraries
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version       Architecture Description
++++-==============-=============-============-=================================
+ii  unzip          6.0-20ubuntu1 amd64        De-archiver for .zip files
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version            Architecture Description
++++-==============-==================-============-=================================================================
+ii  openssh-server 1:7.2p2-4ubuntu2.1 amd64        secure shell (SSH) server, for secure access from remote machines
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version      Architecture Description
++++-==============-============-============-======================================================
+ii  bzip2          1.0.6-8      amd64        high-quality block-sorting file compressor - utilities
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version           Architecture Description
++++-==============-=================-============-=================================
+ii  apache2        2.4.18-2ubuntu3.1 amd64        Apache HTTP Server
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version         Architecture Description
++++-==============-===============-============-==================================================
+ii  deluged        1.3.12-1ubuntu1 all          bittorrent client written in Python/PyGTK (daemon)
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version         Architecture Description
++++-==============-===============-============-===============================================
+ii  deluge-webui   1.3.12-1ubuntu1 all          bittorrent client (web ui transitional package)
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version      Architecture Description
++++-==============-============-============-=================================
+ii  nzbdrone       2.0.0.4472   all          Sonarr is an internet PVR
 [1;33mInstalling Plex Media Server...
 [1;33mInstalling Delgue...
 Warning: The home dir /var/lib/deluge you specified already exists.
@@ -13,12 +79,14 @@ Warning: couchpotato.service changed on disk. Run 'systemctl daemon-reload' to r
 [1;33mInstalling Sonarr...
 Warning: The home dir /opt/ProgramData/sonarr you specified already exists.
 The system user `sonarr' already exists. Exiting.
-Warning: couchpotato.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+Warning: sonarr.service changed on disk. Run 'systemctl daemon-reload' to reload units.
 [1;33mInstalling PlexPy...
-Created symlink from /etc/systemd/system/multi-user.target.wants/plexpy.service to /lib/systemd/system/plexpy.service.
+The system user `plexpy' already exists. Exiting.
+Warning: plexpy.service changed on disk. Run 'systemctl daemon-reload' to reload units.
 [1;33mInstalling PlexRequest.NET...
+mkdir: cannot create directory ‘/opt/ombi’: File exists
+The system user `ombi' already exists. Exiting.
 Archive:  Ombi.zip
-   creating: Release/
   inflating: Release/BouncyCastle.dll  
   inflating: Release/BouncyCastle.xml  
   inflating: Release/CommandLine.dll  
@@ -29,19 +97,13 @@ Archive:  Ombi.zip
   inflating: Release/Common.Logging.dll  
   inflating: Release/Common.Logging.pdb  
   inflating: Release/Common.Logging.xml  
-   creating: Release/Content/
   inflating: Release/Content/analytics.js  
-   creating: Release/Content/Angular/
   inflating: Release/Content/angular.min.js  
   inflating: Release/Content/Angular/angular-loading-spinner.js  
   inflating: Release/Content/Angular/angular-spinner.min.js  
-   creating: Release/Content/app/
   inflating: Release/Content/app/app.js  
-   creating: Release/Content/app/requests/
   inflating: Release/Content/app/requests/requestsController.js  
   inflating: Release/Content/app/requests/requestsService.js  
-   creating: Release/Content/app/userManagement/
-   creating: Release/Content/app/userManagement/Directives/
   inflating: Release/Content/app/userManagement/Directives/addUser.html  
   inflating: Release/Content/app/userManagement/Directives/sidebar.html  
   inflating: Release/Content/app/userManagement/Directives/table.html  
@@ -66,7 +128,6 @@ Archive:  Ombi.zip
   inflating: Release/Content/favicon.ico  
   inflating: Release/Content/font-awesome.css  
   inflating: Release/Content/font-awesome.min.css  
-   creating: Release/Content/fonts/
   inflating: Release/Content/fonts/fontawesome-webfont.eot  
   inflating: Release/Content/fonts/fontawesome-webfont.svg  
   inflating: Release/Content/fonts/fontawesome-webfont.ttf  
@@ -79,9 +140,7 @@ Archive:  Ombi.zip
   inflating: Release/Content/fonts/glyphicons-halflings-regular.woff  
  extracting: Release/Content/fonts/glyphicons-halflings-regular.woff2  
   inflating: Release/Content/handlebars.min.js  
-   creating: Release/Content/helpers/
   inflating: Release/Content/helpers/bootbox.min.js  
-   creating: Release/Content/images/
   inflating: Release/Content/images/logo.png  
   inflating: Release/Content/issue-details.js  
   inflating: Release/Content/issues.js  
@@ -94,7 +153,6 @@ Archive:  Ombi.zip
   inflating: Release/Content/search.js  
   inflating: Release/Content/site.js  
   inflating: Release/Content/spin.min.js  
-   creating: Release/Content/swagger/
   inflating: Release/Content/swagger/backbone-min.js  
   inflating: Release/Content/swagger/handlebars-2.0.0.js  
   inflating: Release/Content/swagger/highlight.7.3.pack.js  
@@ -114,23 +172,16 @@ Archive:  Ombi.zip
   inflating: Release/Content/swagger/typography.css  
   inflating: Release/Content/swagger/underscore-min.js  
   inflating: Release/Content/swagger/underscore-min.map  
-   creating: Release/Content/Themes/
  extracting: Release/Content/Themes/original.css  
  extracting: Release/Content/Themes/original.min.css  
   inflating: Release/Content/Themes/plex.css  
   inflating: Release/Content/Themes/plex.min.css  
-   creating: Release/Content/tooltip/
-   creating: Release/Content/tooltip/plugins/
-   creating: Release/Content/tooltip/plugins/tooltipster/
-   creating: Release/Content/tooltip/plugins/tooltipster/sideTip/
-   creating: Release/Content/tooltip/plugins/tooltipster/sideTip/themes/
   inflating: Release/Content/tooltip/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css  
   inflating: Release/Content/tooltip/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css  
   inflating: Release/Content/tooltip/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-noir.min.css  
   inflating: Release/Content/tooltip/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css  
   inflating: Release/Content/tooltip/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css  
   inflating: Release/Content/tooltip/plugins/tooltipster/sideTip/tooltipster-sideTip.min.css  
-   creating: Release/Content/tooltip/plugins/tooltipster/SVG/
   inflating: Release/Content/tooltip/plugins/tooltipster/SVG/tooltipster-SVG.js  
   inflating: Release/Content/tooltip/plugins/tooltipster/SVG/tooltipster-SVG.min.js  
   inflating: Release/Content/tooltip/tooltipster.bundle.css  
@@ -142,27 +193,20 @@ Archive:  Ombi.zip
   inflating: Release/Content/tooltip/tooltipster.core.min.css  
   inflating: Release/Content/tooltip/tooltipster.core.min.js  
   inflating: Release/Content/wizard.js  
-   creating: Release/da/
   inflating: Release/Dapper.Contrib.dll  
   inflating: Release/Dapper.Contrib.xml  
   inflating: Release/Dapper.dll      
   inflating: Release/Dapper.xml      
   inflating: Release/da/Ombi.resources.dll  
-   creating: Release/de/
   inflating: Release/de/Ombi.resources.dll  
-   creating: Release/es/
   inflating: Release/es/Ombi.resources.dll  
   inflating: Release/FluentValidation.dll  
   inflating: Release/FluentValidation.pdb  
   inflating: Release/FluentValidation.xml  
-   creating: Release/fr/
   inflating: Release/fr/Ombi.resources.dll  
   inflating: Release/FSharp.Core.dll  
   inflating: Release/FSharp.Core.xml  
-   creating: Release/it/
   inflating: Release/it/Ombi.resources.dll  
-   creating: Release/Jobs/
-   creating: Release/Jobs/Templates/
   inflating: Release/Jobs/Templates/RecentlyAddedTemplate.html  
   inflating: Release/MailKit.dll     
   inflating: Release/MailKit.xml     
@@ -208,12 +252,9 @@ Archive:  Ombi.zip
   inflating: Release/Ninject.Extensions.ChildKernel.dll  
   inflating: Release/Ninject.Extensions.ChildKernel.xml  
   inflating: Release/Ninject.xml     
-   creating: Release/nl/
   inflating: Release/NLog.dll        
   inflating: Release/NLog.xml        
   inflating: Release/nl/Ombi.resources.dll  
-   creating: Release/Notification/
-   creating: Release/Notification/Templates/
   inflating: Release/Notification/Templates/BasicRequestTemplate.html  
   inflating: Release/Octokit.dll     
   inflating: Release/Octokit.pdb     
@@ -243,7 +284,6 @@ Archive:  Ombi.zip
   inflating: Release/Polly.dll       
   inflating: Release/Polly.pdb       
   inflating: Release/Polly.xml       
-   creating: Release/pt/
   inflating: Release/pt/Ombi.resources.dll  
   inflating: Release/Quartz.dll      
   inflating: Release/Quartz.pdb      
@@ -252,7 +292,6 @@ Archive:  Ombi.zip
   inflating: Release/RestSharp.xml   
   inflating: Release/sqlite3.dll     
   inflating: Release/SqlTables.sql   
-   creating: Release/sv/
   inflating: Release/sv/Ombi.resources.dll  
   inflating: Release/Swagger.ObjectModel.dll  
   inflating: Release/System.Web.Helpers.dll  
@@ -272,10 +311,7 @@ Archive:  Ombi.zip
   inflating: Release/TraktApiSharp.dll  
   inflating: Release/TraktApiSharp.pdb  
   inflating: Release/TraktApiSharp.xml  
-   creating: Release/Views/
-   creating: Release/Views/About/
   inflating: Release/Views/About/About.cshtml  
-   creating: Release/Views/Admin/
   inflating: Release/Views/Admin/Authentication.cshtml  
   inflating: Release/Views/Admin/CouchPotato.cshtml  
   inflating: Release/Views/Admin/DiscordNotification.cshtml  
@@ -293,52 +329,35 @@ Archive:  Ombi.zip
   inflating: Release/Views/Admin/Sickrage.cshtml  
   inflating: Release/Views/Admin/SlackNotifications.cshtml  
   inflating: Release/Views/Admin/Sonarr.cshtml  
-   creating: Release/Views/ApiDocs/
   inflating: Release/Views/ApiDocs/index.html  
   inflating: Release/Views/ApiDocs/o2c.html  
-   creating: Release/Views/Customization/
   inflating: Release/Views/Customization/Customization.cshtml  
-   creating: Release/Views/FaultQueue/
   inflating: Release/Views/FaultQueue/RequestFaultQueue.cshtml  
-   creating: Release/Views/Integration/
   inflating: Release/Views/Integration/Radarr.cshtml  
   inflating: Release/Views/Integration/Watcher.cshtml  
-   creating: Release/Views/Issues/
   inflating: Release/Views/Issues/Details.cshtml  
   inflating: Release/Views/Issues/Index.cshtml  
-   creating: Release/Views/Landing/
   inflating: Release/Views/Landing/Index.cshtml  
-   creating: Release/Views/Login/
   inflating: Release/Views/Login/ChangePassword.cshtml  
   inflating: Release/Views/Login/Index.cshtml  
   inflating: Release/Views/Login/Register.cshtml  
-   creating: Release/Views/Requests/
   inflating: Release/Views/Requests/Index.cshtml  
-   creating: Release/Views/Search/
   inflating: Release/Views/Search/Index.cshtml  
-   creating: Release/Views/Shared/
   inflating: Release/Views/Shared/Blank.cshtml  
-   creating: Release/Views/Shared/Partial/
   inflating: Release/Views/Shared/Partial/_Head.cshtml  
   inflating: Release/Views/Shared/Partial/_LayoutScripts.cshtml  
   inflating: Release/Views/Shared/Partial/_Navbar.cshtml  
   inflating: Release/Views/Shared/Partial/_Sidebar.cshtml  
   inflating: Release/Views/Shared/_AngularLayout.cshtml  
   inflating: Release/Views/Shared/_Layout.cshtml  
-   creating: Release/Views/SystemStatus/
   inflating: Release/Views/SystemStatus/Status.cshtml  
-   creating: Release/Views/UserLogin/
   inflating: Release/Views/UserLogin/Index.cshtml  
   inflating: Release/Views/UserLogin/Password.cshtml  
   inflating: Release/Views/UserLogin/Username.cshtml  
-   creating: Release/Views/UserManagement/
-   creating: Release/Views/UserManagementSettings/
   inflating: Release/Views/UserManagementSettings/UserManagementSettings.cshtml  
   inflating: Release/Views/UserManagement/Index.cshtml  
-   creating: Release/Views/UserWizard/
   inflating: Release/Views/UserWizard/Index.cshtml  
  extracting: Release/Views/_ViewStart.cshtml  
-   creating: Release/x64/
   inflating: Release/x64/SQLite.Interop.dll  
-   creating: Release/x86/
   inflating: Release/x86/SQLite.Interop.dll  
+Warning: ombi.service changed on disk. Run 'systemctl daemon-reload' to reload units.
